@@ -21,7 +21,7 @@ var (
 const (
     Bid int = 1
     Ask int = 1
-}
+)
 
 // Candle resolutions
 const (
