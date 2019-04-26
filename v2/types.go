@@ -527,7 +527,7 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 	var side int64
 
     if amt <  math.MaxInt64 {
-        side = int(amt)
+        side = int64(amt)
     } else {
         side = 0
         fmt.Errorf("Side exceeds MaxInt64")
