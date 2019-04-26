@@ -95,7 +95,8 @@ const (
   Checksum int = 131072
 )
 
-type orderSide byte
+// changed to int for funding trades duration processing
+type orderSide int
 
 // OrderSide provides a typed set of order sides.
 type OrderSide orderSide
