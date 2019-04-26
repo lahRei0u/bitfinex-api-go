@@ -35,6 +35,7 @@ const (
 )
 
 type Mts int64
+
 type SortOrder int
 const (
 	OldestFirst         SortOrder = 1
@@ -89,12 +90,6 @@ const (
   Seq_all int = 65536
   Checksum int = 131072
 )
-
-// changed to int to hold funding trades duration 
-type orderSide int
-
-// int provides a typed set of order sides.
-type int orderSide
 
 // Book precision levels
 const (
