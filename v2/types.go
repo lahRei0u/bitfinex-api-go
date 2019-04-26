@@ -523,18 +523,11 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 		return o, fmt.Errorf("data slice too short for trade: %#v", raw)
 	}
 
-	amt := f64ValOrZero(raw[2])
-    fmt.Errorf("amt:", amt)
+	amt := i64ValOrZero(raw[2])
 	var side int64
 
-    if amt <  math.MaxInt64 {
-        side = int64(amt)
-    } else {
-        side = 0
-        fmt.Errorf("Side exceeds MaxInt64")
-    }
+    side = amt
 
-    fmt.Errorf("side:", side)
 	o = &Trade{
 		Pair:   pair,
 		ID:     i64ValOrZero(raw[0]),
