@@ -515,7 +515,7 @@ type Trade struct {
 	MTS    int64
 	Amount float64
 	Price  float64
-	Side   int
+	Side   int64
 }
 
 func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
