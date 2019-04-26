@@ -530,11 +530,8 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 
 	amt := f64ValOrZero(raw[2])
 	var side OrderSide
-	if amt > 0 {
-		side = Bid
-	} else {
-		side = Ask
-	}
+
+    side = amt
 
 	o = &Trade{
 		Pair:   pair,
