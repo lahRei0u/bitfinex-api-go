@@ -95,7 +95,7 @@ const (
   Checksum int = 131072
 )
 
-// changed to int for funding trades duration processing
+// changed to int to hold funding trades duration 
 type orderSide int
 
 // OrderSide provides a typed set of order sides.
