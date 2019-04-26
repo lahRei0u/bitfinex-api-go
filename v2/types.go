@@ -524,6 +524,7 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 	}
 
 	amt := f64ValOrZero(raw[2])
+    fmt.Errorf("amt:", amt)
 	var side int64
 
     if amt <  math.MaxInt64 {
@@ -533,6 +534,7 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
         fmt.Errorf("Side exceeds MaxInt64")
     }
 
+    fmt.Errorf("side:", side)
 	o = &Trade{
 		Pair:   pair,
 		ID:     i64ValOrZero(raw[0]),
