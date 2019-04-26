@@ -523,10 +523,7 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 		return o, fmt.Errorf("data slice too short for trade: %#v", raw)
 	}
 
-	amt := i64ValOrZero(raw[2])
-	var side int64
-
-    side = amt
+	amt := f64ValOrZero(raw[2])
 
 	o = &Trade{
 		Pair:   pair,
@@ -534,7 +531,7 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 		MTS:    i64ValOrZero(raw[1]),
 		Amount: math.Abs(amt),
 		Price:  f64ValOrZero(raw[3]),
-		Side:   side,
+		Side:   i64ValOrZero(raw[4]),
 	}
 
 	return
