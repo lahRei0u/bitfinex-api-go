@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bitfinexcom/bitfinex-api-go/v2"
-	"github.com/bitfinexcom/bitfinex-api-go/v2/websocket"
+	"github.com/lahRei0u/bitfinex-api-go/v2"
+	"github.com/lahRei0u/bitfinex-api-go/v2/websocket"
 )
 
 // wait2 will wait for at least "count" messages on channel "ch" within time "t", or return an error

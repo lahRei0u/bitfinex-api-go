@@ -1,7 +1,7 @@
 package rest
 
 import (
-	"github.com/bitfinexcom/bitfinex-api-go/v2"
+	"github.com/lahRei0u/bitfinex-api-go/v2"
 	"path"
 	"fmt"
 )

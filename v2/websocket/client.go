@@ -10,13 +10,13 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/bitfinexcom/bitfinex-api-go/utils"
+	"github.com/lahRei0u/bitfinex-api-go/utils"
 
 	"crypto/hmac"
 	"crypto/sha512"
 	"encoding/hex"
 
-	"github.com/bitfinexcom/bitfinex-api-go/v2"
+	"github.com/lahRei0u/bitfinex-api-go/v2"
 )
 
 var productionBaseURL = "wss://api-pub.bitfinex.com/ws/2"
