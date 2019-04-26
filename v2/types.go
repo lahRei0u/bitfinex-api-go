@@ -81,8 +81,8 @@ type CandleResolution candleResolution
 
 // Order sides
 const (
-	Bid OrderSide = 1
-	Ask OrderSide = 2
+	Bid int = 1
+	Ask int = 2
 )
 
 // Settings flags
@@ -98,8 +98,8 @@ const (
 // changed to int to hold funding trades duration 
 type orderSide int
 
-// OrderSide provides a typed set of order sides.
-type OrderSide orderSide
+// int provides a typed set of order sides.
+type int orderSide
 
 // Book precision levels
 const (
@@ -520,7 +520,7 @@ type Trade struct {
 	MTS    int64
 	Amount float64
 	Price  float64
-	Side   OrderSide
+	Side   int
 }
 
 func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
@@ -529,13 +529,13 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 	}
 
 	amt := f64ValOrZero(raw[2])
-	var side OrderSide
+	var side int
 
-    if amt <  math.MaxInt64 {
-        side = int(amt).(OrderSide)
+    if amt <  math.MaxInt {
+        side = int(amt)
     } else {
         side = 0
-        fmt.Errorf("Side exceeds MaxInt64")
+        fmt.Errorf("Side exceeds MaxInt")
     }
 
 	o = &Trade{
@@ -1395,7 +1395,7 @@ type BookUpdate struct {
 	Count       int64       // updated count, optional
 	Amount      float64     // updated amount
 	AmountJsNum json.Number // update amount as json.Number
-	Side        OrderSide   // side
+	Side        int   // side
 	Action      BookAction  // action (add/remove)
 }
 
@@ -1437,7 +1437,7 @@ func NewBookUpdateFromRaw(symbol, precision string, data []interface{}, raw_numb
 	amt := f64ValOrZero(data[2])
 	amt_num := floatToJsonNumber(raw_num_array[2])
 
-	var side OrderSide
+	var side int
 	var actionCtrl float64
 	if IsRawBook(precision) {
 		// [ID, price, amount]
