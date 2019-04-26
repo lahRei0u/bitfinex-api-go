@@ -18,6 +18,11 @@ var (
 	ErrNotFound = errors.New("not found")
 )
 
+const (
+    Bid int = 1
+    Ask int = 1
+}
+
 // Candle resolutions
 const (
 	OneMinute      CandleResolution = "1m"
@@ -521,11 +526,11 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 	amt := f64ValOrZero(raw[2])
 	var side int
 
-    if amt <  math.MaxInt {
+    if amt <  math.MaxInt64 {
         side = int(amt)
     } else {
         side = 0
-        fmt.Errorf("Side exceeds MaxInt")
+        fmt.Errorf("Side exceeds MaxInt64")
     }
 
 	o = &Trade{
