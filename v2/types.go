@@ -79,11 +79,6 @@ type candleResolution string
 // CandleResolution provides a typed set of resolutions for candle subscriptions.
 type CandleResolution candleResolution
 
-// Order sides
-const (
-	Bid int = 1
-	Ask int = 2
-)
 
 // Settings flags
 
