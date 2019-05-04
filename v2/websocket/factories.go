@@ -54,6 +54,9 @@ func (f *TradeFactory) Build(chanID int64, objType string, raw []interface{}, ra
 	if "tu" == objType {
 		return nil, nil // do not process TradeUpdate messages on public feed, only need to process TradeExecution (first copy seen)
 	}
+    if "ftu" == objType {
+        return nil, nil // ---
+    }
 	if err == nil {
 		trade, err := bitfinex.NewTradeFromRaw(sub.Request.Symbol, raw)
 		return trade, err
