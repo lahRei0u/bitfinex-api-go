@@ -529,7 +529,7 @@ func NewTradeFromRaw(pair string, raw []interface{}) (o *Trade, err error) {
 		Pair:   pair,
 		ID:     i64ValOrZero(raw[0]),
 		MTS:    i64ValOrZero(raw[1]),
-		Amount: math.Abs(amt),
+		Amount: amt,
 		Price:  f64ValOrZero(raw[3]),
 		Side:   i64ValOrZero(raw[4]),
 	}
